@@ -6,6 +6,8 @@ var PORT = process.env.PORT ||3000;
 
 var app = express();
 
+var router = express.Router();
+
 app.use(express.static(__dirname + "/public"));
 
 //have the requests go through router middleware
