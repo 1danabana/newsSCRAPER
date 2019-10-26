@@ -12,6 +12,9 @@ var app = express();
 
 var router = express.Router();
 
+//require our routes fiel to pass our router object
+require("./config/routes")(router);
+
 //desiginate public folder as directory
 app.use(express.static(__dirname + "/public"));
 
@@ -30,7 +33,7 @@ app.use(bodyParser.urlencoded({
 app.use(router);
 
 //use deployed database or local mongoheadlines db
-var db = process.env.MONGODB_URI || "monodb://localhost/mongoHeadlines";
+var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 //connect mongoose to out db
 mongoose.connect(db, function(error) {
